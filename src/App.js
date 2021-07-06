@@ -9,7 +9,11 @@ function App() {
   const [greeting, setGreetingVal] = useState();
   const [displayGreeting, setDisplayGreeting] = useState('Connecting...');
 
-  async function requestAccount() {}
+  async function requestAccount() {
+    // prompts the user to connect to Web3 via Metamask
+    await window.ethereum.request({ method: 'eth_requestAccounts' });
+  }
+
   async function fetchGreeting() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -27,15 +31,10 @@ function App() {
       }
     }
   }
-
-  fetchGreeting();
   return (
     <div className="App">
       <header className="App-header">
         <h1>{displayGreeting}</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
       </header>
     </div>
   );
