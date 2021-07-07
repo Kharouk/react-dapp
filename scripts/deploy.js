@@ -16,10 +16,14 @@ async function main() {
   // We get the contract to deploy
   const Greeter = await hre.ethers.getContractFactory('Greeter');
   const greeter = await Greeter.deploy('Welcome to Web3 Cadet!!');
-
   await greeter.deployed();
-
   console.log('Greeter deployed to:', greeter.address);
+
+  // Deploying TGLT to the blockchain
+  const Token = await hre.ethers.getContractFactory('Token');
+  const token = await Token.deploy();
+  await token.deployed();
+  console.log('Token has been deployed to: ', token.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

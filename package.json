@@ -24,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "node:start": "npx hardhat node",
+    "compile": "npx hardhat compile",
     "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
     "deploy:ropsten": "npx hardhat run scripts/deploy.js --network ropsten"
   },
